@@ -1,0 +1,22 @@
+@(title: String, user: Map[String, String], posts: List[Map[String, String]])
+@layout(title) {
+@if(user.get("username").isDefined){
+<h1>Hello, @user.get("username").get!</h1>
+}else{
+<h1>Hello, Guest!</h1>
+}
+@for(post <- posts){
+<div><p>@post.getOrElse("author","Guest") says: <b>@post.getOrElse("body","Hello!")</b></p></div>
+}
+}
+<h2>HTML Forms</h2>
+
+<form action="/action_page.php">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
